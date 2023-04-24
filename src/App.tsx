@@ -14,11 +14,13 @@ function App() {
       const contents = await Promise.all([
         fetchingDogs(),
         fetchingDogs(),
-        fetchingDogs()
-      ])
-    }
-  })
-  return <div className="App"></div>;
+        fetchingDogs(),
+      ]);
+      console.log(contents);
+    };
+    fetchData();
+  }, []);
+  return <div className="App">sdf</div>;
 }
 
 export default App;
