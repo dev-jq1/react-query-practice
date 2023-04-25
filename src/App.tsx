@@ -16,7 +16,6 @@ function App() {
         fetchingDogs(),
         fetchingDogs(),
       ]);
-      console.log(contents);
     };
     fetchData();
   }, []);
