@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
+import { BREEDS } from "./constants/dogs";
 
 function App() {
-  const fetchingDogs = async () => {
+  const { dachshund, maltese, terrier } = BREEDS;
+  const fetchingDogs = async (breed: string) => {
     const response = await fetch(
-      `https://dog.ceo/api/breed/hound/images/random/3`
+      `https://dog.ceo/api/breed/${breed}/images/random/3`
     );
     const data = await response.json();
     return data;
@@ -12,9 +14,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const contents = await Promise.all([
-        fetchingDogs(),
-        fetchingDogs(),
-        fetchingDogs(),
+        fetchingDogs(dachshund),
+        fetchingDogs(maltese),
+        fetchingDogs(terrier),
       ]);
     };
     fetchData();
