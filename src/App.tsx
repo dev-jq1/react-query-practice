@@ -15,15 +15,21 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const contents = await Promise.all([
+      const [
+        { message: dachshunds },
+        { message: malteses },
+        { message: terriers },
+      ] = await Promise.all([
         fetchingDogs(dachshund),
         fetchingDogs(maltese),
         fetchingDogs(terrier),
       ]);
 
-      const dachshunds = contents[0].message;
-      const malteses = contents[1].message;
-      const terriers = contents[2].message;
+      //구조분해 할당을 통해 더 간결하게 작성 가능
+      // const dachshunds = contents[0].message;
+      // const { message: dachshunds } = contents[0];
+      // const malteses = contents[1].message;
+      // const terriers = contents[2].message;
 
       setDogs({
         dachshunds,
