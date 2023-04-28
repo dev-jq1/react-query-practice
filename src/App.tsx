@@ -3,6 +3,7 @@ import { BREEDS } from "./constants/dogs";
 
 function App() {
   const { dachshund, maltese, terrier } = BREEDS;
+  const cache = new Map();
   const [dogs, setDogs] = useState({});
 
   const fetchingDogs = async (breed: string) => {
@@ -10,7 +11,9 @@ function App() {
       `https://dog.ceo/api/breed/${breed}/images/random/3`
     );
     const data = await response.json();
-    return data;
+
+    cache.set(breed, data);
+    return cache.get(breed);
   };
 
   useEffect(() => {
@@ -39,7 +42,11 @@ function App() {
     };
     fetchData();
   }, []);
-  return <div className="App">sdf</div>;
+  return (
+    <div className="App">
+      <div></div>
+    </div>
+  );
 }
 
 export default App;
