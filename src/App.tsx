@@ -4,9 +4,16 @@ import { BREEDS } from "./constants/dogs";
 function App() {
   const { dachshund, maltese, terrier } = BREEDS;
   const cache = new Map();
-  const [dogs, setDogs] = useState({});
+  const [dogs, setDogs] = useState({
+    dachshunds: [],
+    malteses: [],
+    terriers: [],
+  });
 
   const fetchingDogs = async (breed: string) => {
+    if (cache.has(breed)) {
+      return cache.get(breed);
+    }
     const response = await fetch(
       `https://dog.ceo/api/breed/${breed}/images/random/3`
     );
@@ -44,7 +51,13 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <div></div>
+      {dogs.dachshunds.map((url) => {
+        return (
+          <div key={url}>
+            <img src={url} alt="dog" className="dog-image" />
+          </div>
+        );
+      })}
     </div>
   );
 }

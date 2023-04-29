@@ -1,7 +1,7 @@
 export const BREEDS = {
   dachshund: "dachshund",
   maltese: "maltese",
-  terrier: "terrier"
+  terrier: "terrier",
 };
 
 export const breedKeys = ["dachshund", "maltese", "terrier"];
