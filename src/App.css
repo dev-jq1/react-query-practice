@@ -1,0 +1,14 @@
+.dogs-wrap {
+  display: flex;
+  align-items: flex-start;
+}
+
+.dog {
+  width: 33%;
+}
+
+.dogs-image {
+  width: 100%;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+}

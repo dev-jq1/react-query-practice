@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BREEDS } from "./constants/dogs";
+import "./App.css";
+import Dogs from "./components/Dogs";
 
 function App() {
   const { dachshund, maltese, terrier } = BREEDS;
@@ -51,13 +53,9 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {dogs.dachshunds.map((url) => {
-        return (
-          <div key={url}>
-            <img src={url} alt="dog" className="dog-image" />
-          </div>
-        );
-      })}
+      <Dogs dogs={dogs.dachshunds} />
+      <Dogs dogs={dogs.malteses} />
+      <Dogs dogs={dogs.terriers} />
     </div>
   );
 }
