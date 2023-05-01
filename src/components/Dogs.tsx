@@ -9,7 +9,7 @@ const Dogs: FC<DogsProps> = ({ dogs }) => {
   return (
     <div className='dogs-wrap'>
       {dogs.map((url) => {
-        return <Dog url={url} />;
+        return <Dog key={url} url={url} />;
       })}
     </div>
   );

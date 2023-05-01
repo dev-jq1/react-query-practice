@@ -6,7 +6,7 @@ interface DogProps {
 
 const Dog: FC<DogProps> = ({ url }) => {
   return (
-    <div key={url} className='dog'>
+    <div className='dog'>
       <img src={url} alt='dog' className='dogs-image' />
     </div>
   );
